@@ -1,7 +1,7 @@
 import { FETCH_ALBUMS, FETCH_PHOTOS } from './types';
 
 export const fetchAlbums = () => dispatch => {
-  fetch('https://jsonplaceholder.typicode.com/albums')
+  fetch('https://jsonplaceholder.typicode.com/albums?userId=1')
     .then(resp => resp.json())
     .then( albums => {
       dispatch({
@@ -15,6 +15,8 @@ export const fetchPhotos = albumId => dispatch => {
   fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`)
     .then(resp => resp.json())
     .then( photos => {
+      photos.forEach(e => e.hashtagArr = []);
+
       dispatch({
         type: FETCH_PHOTOS,
         photos: photos

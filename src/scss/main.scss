@@ -1,0 +1,19 @@
+@import 'header';
+@import 'albums-list';
+@import 'photos';
+@import 'search-form';
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #003a2e;
+  min-width: 320px;
+}
+
+
+
