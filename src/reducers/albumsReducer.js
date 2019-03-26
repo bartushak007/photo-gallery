@@ -1,6 +1,6 @@
-import { FETCH_ALBUMS } from '../actions/types';
+import { FETCH_ALBUMS, FETCH_PHOTOS } from '../actions/types';
 
-const initialState = { albums: [] };
+const initialState = { albums: [], photos: [] };
 
 export default (state = initialState, action) => {
   switch(action.type) {
@@ -9,7 +9,12 @@ export default (state = initialState, action) => {
         ...state,
         albums: action.albums
       }
-    default:
+    case FETCH_PHOTOS:
+      return{
+        ...state,
+        photos: action.photos
+      }
+      default:
       return state
   }
 }
