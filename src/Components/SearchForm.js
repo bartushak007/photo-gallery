@@ -1,54 +1,66 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.state = { 
-      filter: ''
+    this.state = {
+      filter: ""
     };
   }
 
-  onChange(e) {    
+  onChange(e) {
     this.setState({ filter: e.target.value });
   }
 
   onSubmit(e) {
-    e.preventDefault();  
-    const photos = document.querySelector('.photos-block');
-    console.log(photos.childNodes)  
+    e.preventDefault();
+    const photos = document.querySelector(".photos-block").childNodes;
+    const filter = this.state.filter;
+    const regExp = new RegExp(`(${filter})`, "i");
+
+    this.props.photos.forEach((e, i) => {
+      const title = e.title;
+
+      const hasHashtag = e.hashtagArr.some(e => {        
+        return e.search(filter) !== -1;        
+      });
+
+      if (title.search(regExp) !== -1 || hasHashtag) {
+        photos[i].classList.remove("photos-block__photo-container--hidden");
+      } else {
+        photos[i].classList.add("photos-block__photo-container--hidden");
+      }
+    });
   }
 
   render() {
     return (
       <div className="search-form__search">
         <form onSubmit={this.onSubmit}>
-          <input onChange={this.onChange} className="search-form__search-input" type="search" name="search" placeholder="Search photos"/> 
-          <input className="search-form__search-btn" type="submit" value="Search"/>
+          <input
+            onChange={this.onChange}
+            value={this.state.filter}
+            className="search-form__search-input"
+            type="search"
+            name="search"
+            placeholder="Search photos"
+          />
+          <input
+            className="search-form__search-btn"
+            type="submit"
+            value="Search"
+          />
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default SearchForm;
+const mapStateToProps = state => ({
+  photos: state.gallery.photos
+});
 
-// function filter() {
-//   var filterValue = document.querySelector('.filter__input');
-//   var visibleTableElementsArrIndex = [];
-
-//   if (filterValue.tagName === 'INPUT') {
-//     tableElements.forEach = [].forEach;
-//     tableElements.forEach(function(item, i) {
-//       var regExp = new RegExp('^(' + filterValue.value + ')', 'i');
-
-//       if (item.innerHTML.search(regExp) === -1) {
-//         item.parentNode.hidden = true;
-//       } else {
-//         item.parentNode.hidden = false;
-//         visibleTableElementsArrIndex.push(i);
-//       }
-//     });
-//   }
-// }
+export default connect(mapStateToProps)(SearchForm);
