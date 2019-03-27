@@ -9,8 +9,7 @@ class Photos extends Component {
 
   render() {
     return (
-      <div className="photos-block">
-        <h2>{this.props.album}</h2>
+      <div className="photos-block">       
         {this.props.photos.map(e => {
           const { id, url, title } = e;
 
@@ -26,11 +25,7 @@ class Photos extends Component {
 }
 
 const mapStateToProps = state => ({
-  photos: state.gallery.photos,
-  albums: state.gallery.albums
+  photos: state.gallery.photos  
 });
 
-export default connect(
-  mapStateToProps,
-  { fetchPhotos }
-)(Photos);
+export default connect( mapStateToProps, { fetchPhotos })(Photos);

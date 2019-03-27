@@ -19,7 +19,7 @@
     list-style-type: none;
     width: 500px;
     position: absolute;
-    top: 51px;
+    top: 39px;
     left: 0px;
     max-height: 0px;
     transition: .6s ease-in-out;
@@ -27,29 +27,43 @@
   }
 
   &__embed-albums-list-elem {
-    margin: 2px 0;
-    color: #969696;
+    margin: 2px 0;    
+    width: 100%;    
+  }
 
+  &__embed-albums-list-link {
     padding: 2px 15px;
-    border-radius: 3px;
-    border: 0;
     background: #215f48;
     cursor: pointer;
     width: 100%;
+    border-radius: 3px;
+    border: 0;
     text-transform: uppercase;
     transition: .5s;
+    color: #969696;    
 
     &:hover {
       background: #96969682;
-      color: #000000;
+      color: #003a2e;;
     }
   }
 }
 
 @media (max-width: 700px) {
   .nav-list {
+    &__elem {
+      padding: 8px 0;
+      border-radius: 3px;
+      width: 300px;
+      text-align: center;
+    }
+
     &__embed-albums-list {
-      left: -90px;
+      padding: 0 5px;
+      width: 300px;         
+      max-height: 0px;
+      transition: .6s ease-in-out;
+      overflow: hidden;
     }
   }
 }

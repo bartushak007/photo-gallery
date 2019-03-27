@@ -17,7 +17,7 @@ class NavList extends Component {
                   key={ id }
                   onClick={ this.props.fetchPhotos.bind(null, id) }
                 >
-                  { title }
+                  <button className="nav-list__embed-albums-list-link" href="#">{ title }</button>
                 </li>
               );
             }) }
