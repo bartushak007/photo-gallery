@@ -1,5 +1,5 @@
 {
-  "name": "cards_gallery",
+  "name": "photo-gallery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
