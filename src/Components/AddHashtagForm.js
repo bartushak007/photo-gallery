@@ -7,7 +7,9 @@ class AddHashtagForm extends Component {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.state = {};
+    this.state = { 
+      search: ''
+    };
   }
 
   onChange(e) {    

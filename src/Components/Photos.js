@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhotos, addHashtag } from '../actions/albumsActions';
+import { fetchPhotos } from '../actions/albumsActions';
 import Hashtags from '../containers/Hashtags';
 import AddHashtagForm from './AddHashtagForm';
 
@@ -32,4 +32,4 @@ const mapStateToProps = state => ({
   photos: state.gallery.photos  
 });
 
-export default connect( mapStateToProps, { fetchPhotos, addHashtag })(Photos);
+export default connect( mapStateToProps, { fetchPhotos })(Photos);
