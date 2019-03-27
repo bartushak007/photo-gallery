@@ -1,0 +1,12 @@
+.hashtag {
+  height: 56px;
+  width: 300px;
+  padding: 0px 10px;
+  overflow: hidden;
+   
+  &__link {
+    margin: 0 2px;  
+    display: inline-block;  
+    text-decoration: none;
+  }
+}

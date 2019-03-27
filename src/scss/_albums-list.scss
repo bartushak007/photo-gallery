@@ -1,7 +1,9 @@
 .nav-list {
   list-style-type: none;
   font-size: 20px;
-
+  z-index: 2;
+  position: relative;
+  
   &__elem {
     padding: 8px 28px;
     border-radius: 3px;
@@ -40,11 +42,12 @@
     border: 0;
     text-transform: uppercase;
     transition: .5s;
-    color: #969696;    
+    color: #969696;  
+    z-index: 2;  
 
     &:hover {
       background: #96969682;
-      color: #003a2e;;
+      color: #003a2e;      
     }
   }
 }
