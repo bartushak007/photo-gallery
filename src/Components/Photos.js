@@ -18,6 +18,7 @@ class Photos extends Component {
           return (
             <div className="photos-block__photo-container" key={ id }>
               <img className="photos-block__photo" src={ url } alt={ title }/>
+              <p className="photos-block__paragraph">{ title }</p>
               <Hashtags setKey={ id } hashtags={ hashtagArr }/>
               <AddHashtagForm id={ id }/>        
             </div>
