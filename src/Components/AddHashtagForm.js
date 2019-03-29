@@ -32,7 +32,7 @@ class AddHashtagForm extends Component {
     return (
       <div className="hashtags-form">
         <form onSubmit={this.onSubmit}>
-          <input className="hashtags-form__input" onChange={ this.onChange } name="search" placeholder="Search photos"/> 
+          <input className="hashtags-form__input" onChange={ this.onChange } name="search" placeholder="Add hashtag"/> 
           <button className="hashtags-form__btn" type="submit">Submit</button>
         </form>
       </div>
