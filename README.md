@@ -1,3 +1,5 @@
+[link to gp](https://bartushak007.github.io/photo-gallery/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
